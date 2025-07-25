@@ -1,0 +1,39 @@
+.main{
+    width: 100%;
+    height: 100vh;
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chooseRecipe{
+    width: 20%;
+    height: 50%;
+    padding: 0px 20px;
+    margin: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: white;
+    border-radius: 20px;
+
+    font-family: "outfit";
+    
+}
+
+.divChooseRecipeIMG{
+    width: 100% ;
+    height: 50%;
+}
+
+.divChooseRecipeDetails{
+    margin-top: 20px;
+}
+
+.chooseRecipe h2{
+    color: #702e49;
+}

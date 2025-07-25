@@ -1,0 +1,134 @@
+.recipesEmpty{
+    font-family: "outfit";
+    font-size: 2rem;
+    color: #702e49;
+}
+
+.divRecipe{
+    margin-top: 50px;
+    border-radius: 30px;
+    width: 700px;
+    background-color: white;
+    padding: 50px;
+}
+
+.divRecipe h1{
+    margin-bottom: 20px;
+}
+
+.divOmeletteImage{
+    margin-bottom: 40px;
+    border-radius: 20px;
+    width: 700px;
+}
+
+.divRecipe h1{
+    font-family: 'Young-Serif';
+    font-weight: normal;
+}
+
+.recipeDescription{
+    font-family: 'Outfit';
+    margin-bottom: 40px;
+}
+
+.divPreparationTime{
+    background-color: #fff7fc;
+    font-family: "outfit";
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.divPreparationTime h3{
+    color: #702e49;
+}
+
+.divPreparationTime ul{
+    padding: 10px 0px 0px 20px;
+}
+
+.divPreparationTime ul li{
+    padding: 5px 0px 0px 20px ;
+    list-style-type: none;  
+    color: #645b56;
+    font-weight: 300;
+}
+
+.divPreparationTime li:before{
+    color: #702e49;
+    content: "•";
+    display: inline-block;
+    font-size: 2rem;
+    position: relative;
+    left: -20px;
+    top: 8px;
+}
+
+.titleRecipeInfos{
+    color: #84432f;
+}
+
+.divIngredients ul{
+    padding: 0px 0px 20px 10px;
+    font-family: 'outfit';
+}
+
+.divIngredients ul li{
+    padding: 0px 0px 0px 20px ;
+    list-style-type: none;  
+    color: #645b56;
+    font-weight: 300;
+}
+
+.divIngredients li:before{
+    color: #702e49;
+    content: "•";
+    display: inline-block;
+    font-size: 2rem;
+    position: relative;
+    left: -20px;
+    top: 8px;
+}
+
+.stepsList{
+    padding: 0px 0px 20px 10px;
+    display: flex;
+    gap: 20px;
+    font-family: 'outfit';
+    color: #645b56;
+}
+
+.stepsListNumbers{
+    color: #702e49;
+    font-weight: bold;
+
+}
+
+.divNutrition{
+    font-family: 'outfit';
+    color: #645b56;
+}
+
+.divNutrition h4{
+    font-weight: normal;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.nutritionalInfos{
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #645b5648;
+    padding: 18px 20px 10px 32px;
+}
+
+.nutrients{
+    width: 100px;
+}
+
+.nutrientsNumbers{
+    color: #702e49;
+    font-weight: bold;
+    margin: 0px 15px 15px 220px;
+}

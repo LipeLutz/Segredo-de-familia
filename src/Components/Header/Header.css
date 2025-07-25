@@ -1,0 +1,31 @@
+.header{  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 70px 20px 70px;
+    font-family: "poppins", sans-serif;
+}
+
+.divLogo{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    font-family: "poppins";
+}
+
+.spanLarica{
+    color: orange;
+}
+
+.headerNav a{
+    color: #702e49;
+    margin: 0px 15px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.profileIcon{
+    position: relative;
+    top: 3px;
+}
