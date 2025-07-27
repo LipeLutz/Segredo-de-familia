@@ -1,0 +1,49 @@
+.dialogSuccess{
+    width: 20%;
+    border: 1px solid green;
+    background-color: rgba(0, 128, 0, 0.589);
+    color: white;
+    border-radius: 10px;
+    font-family: "poppins";
+    text-align: center;
+
+    box-shadow: 0 0 1em #0000004d;
+
+    position: relative;
+    top: 25px;
+    left: 690px;
+
+    padding: 30px;
+}
+
+.dialogSuccess::backdrop{
+  background-color: rgba(0, 0, 0, 0.507);
+}
+
+.dialogSuccess h2{
+    margin-bottom: 15px;
+}
+
+.dialogSuccess p{
+    margin-bottom: 20px;
+}
+
+.divBtnCloseDialogSuccess{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnCloseDialogSuccess{
+    width: 200px;
+    height: 40px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;    
+    cursor: pointer;
+    transition: transform 100ms ease-in-out;
+}
+
+.btnCloseDialogSuccess:hover{
+    transform: scale(1.05);
+}

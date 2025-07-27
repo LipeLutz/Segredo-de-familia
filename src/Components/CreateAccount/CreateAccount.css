@@ -64,6 +64,7 @@
     border-radius: 10px;
     border: 1px solid black;
     padding: 10px;
+    font-family: "poppins";
 }
 
 .divInputIcon{
@@ -79,14 +80,40 @@
     flex-direction: column;
 }
 
+.divPasswordDoNotMatch{
+    display: flex;
+    justify-content: space-between;
+}
+
+.spanPasswordDoNotMatch{
+    color: red;
+    font-size: 0.9rem;
+}
+
+.spanPasswordMatch{
+    display: none;
+}
+
 .divInputPassword label{
     margin-bottom: 5px;
 }
 
-.divInputPassword input{
+.inputPassword{
     border-radius: 10px;
     border: 1px solid black;
     padding: 10px;
+    font-family: "poppins";
+}
+
+.inputPasswordDoNotMatch{
+    border-radius: 10px;
+    border: 1px solid red;
+    padding: 10px;
+    font-family: "poppins";
+}
+
+.inputPasswordDoNotMatch:focus{
+    border: 1px solid red;
 }
 
 .iconShowPassword{
@@ -98,4 +125,47 @@
 
 .passwordRules ul{
     margin: 0px 0px 0px 30px;
+}
+
+.passwordRules li::marker{
+    color: #702e49;
+}
+
+.iconNegativePassword{
+    width: 30px;
+    height: 20px;   
+    position: relative;
+    top: 4px;
+    color: red;
+}
+
+.iconPositivePassword{
+    width: 30px;
+    height: 20px;   
+    position: relative;
+    top: 4px;
+    color: green;
+}
+
+.divBtnCreateUser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.btnCreateUser{
+    width: 200px;
+    height: 40px;
+    background-color: #702e49;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;    
+    cursor: pointer;
+    transition: transform 100ms ease-in-out;
+}
+
+.btnCreateUser:hover{
+    transform: scale(1.05);
 }

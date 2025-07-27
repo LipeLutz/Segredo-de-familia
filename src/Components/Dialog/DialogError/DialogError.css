@@ -1,0 +1,48 @@
+.dialogError{
+    width: 30%;
+    border: 1px solid red;
+    background-color: rgba(252, 21, 21, 0.514);
+    color: white;
+    border-radius: 10px;
+    font-family: "poppins";
+
+    box-shadow: 0 0 1em #0000004d;
+
+    position: relative;
+    top: 25px;
+    left: 650px;
+
+    padding: 30px;
+}
+
+.dialogError::backdrop{
+  background-color: rgba(0, 0, 0, 0.507);
+}
+
+.dialogError h2{
+    margin-bottom: 15px;
+}
+
+.dialogError p{
+    margin-bottom: 20px;
+}
+
+.divBtnCloseDialogError{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnCloseDialogError{
+    width: 200px;
+    height: 40px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;    
+    cursor: pointer;
+    transition: transform 100ms ease-in-out;
+}
+
+.btnCloseDialogError:hover{
+    transform: scale(1.05);
+}
