@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDGrNXp1GCHF_Nk17QJziVe0fGaoEEQ2VA",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: "segredo-de-familia.firebaseapp.com",
   projectId: "segredo-de-familia",
-  storageBucket: "segredo-de-familia.firebasestorage.app",
-  messagingSenderId: "774045208625",
-  appId: "1:774045208625:web:ce0c2c39f3574e6a6e8510"
+  storageBucket: "segredo-de-familia.appspot.com",
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
