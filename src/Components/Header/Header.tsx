@@ -13,8 +13,8 @@ export const Header = () =>{
 
             <nav className="headerNav">
                 <Link to='/createRecipe'>Adicionar Receita</Link>
+                <Link to='./createAccount'>Criar perfil</Link>
                 <a href="#">Meu perfil <CgProfile className="profileIcon"/></a>
-                <a href="#">Sobre</a>
             </nav>
         </div>
     )
