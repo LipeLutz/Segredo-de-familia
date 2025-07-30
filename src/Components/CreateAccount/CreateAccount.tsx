@@ -68,7 +68,7 @@ export const CreateAccount = () => {
                 password
             }
 
-            setDialogText("Conta criada com sucesso ")
+            setDialogText("Seja bem vindo(a)!")
             setShowDialogSuccess(true)
             
         } else{

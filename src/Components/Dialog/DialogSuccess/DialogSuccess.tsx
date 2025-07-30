@@ -22,7 +22,6 @@ export const DialogSuccess = ({ message, open, onClose}: DialogSuccessProps) =>{
                dialog.close();
            }
    
-           // Fechar com ESC ou clique fora
            const handleClose = () => onClose();
            dialog?.addEventListener('close', handleClose);
    
