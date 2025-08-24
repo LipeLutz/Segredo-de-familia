@@ -6,6 +6,8 @@ import { useEffect, useState, type ChangeEvent, type FormEvent } from 'react'
 import type { CreateUserInterface } from '../../Interfaces/CreateUserInterface';
 import { DialogError } from '../Dialog/DialogError/DialogError'
 import { DialogSuccess } from '../Dialog/DialogSuccess/DialogSuccess';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../Firebase/firebaseConfig.js'
 
 export const CreateAccount = () => {
 
@@ -58,18 +60,25 @@ export const CreateAccount = () => {
         setPasswordLowerCase(hasLowerCase)
     }
 
-    const handleSubmitFormUser = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmitFormUser = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        if (passwordLength === true && passwordNumbers === true && passwordUpperCase === true && passwordUpperCase === true && passwordMatch === true) {
-            const createUser: CreateUserInterface = {
-                name,
-                email,
-                password
-            }
+        if (passwordLength && passwordNumbers && passwordUpperCase && passwordLowerCase && passwordMatch) {
 
-            setDialogText("Seja bem vindo(a)!")
-            setShowDialogSuccess(true)
+            try {
+                await createUserWithEmailAndPassword(auth, email, password)
+                setDialogText("Seja bem vindo(a)!")
+                setShowDialogSuccess(true)
+                
+            } catch (error:any) {
+                if(error.code === 'auth/email-already-in-use'){
+                  setDialogText("Este e-mail já está em uso. Tente outro.")
+                  setShowDialogError(true)  
+                } else{
+                    setDialogText("Ocorreu um erro. Tente novamente")
+                    setShowDialogError(true)
+                }
+            }
             
         } else{
             setDialogText("Por favor, verifique se a sua senha atende aos requisitos obrigatórios para criação de senhas.")

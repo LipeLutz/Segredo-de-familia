@@ -8,13 +8,26 @@
 }
 
 .divLogo{
-    color: black;
     display: flex;
     flex-direction: column;
     font-family: "poppins";
+    
+    transition: transform 100ms ease-in-out;
 }
 
-.spanLarica{
+.divLogo:hover{
+    transform: scale(1.05);
+}
+
+.linkDivLogo{
+    text-decoration: none;
+}
+
+.h2Secret{
+    color: black;
+}
+
+.h2Family{
     color: orange;
 }
 

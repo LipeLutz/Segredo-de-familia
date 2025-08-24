@@ -1,0 +1,28 @@
+.containerProtectedRoute{
+    width: 97vw;
+    height: 100%;
+    background-color: blanchedalmond;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.protectedRoute{
+    width: 100%;
+    height: 100%;
+
+    background-color: white;
+    border-radius: 10px;
+
+}
+
+.divRegisterProtectedRoute{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.protectedRouteCreateAccount{
+    border-right: 1px solid black; 
+}

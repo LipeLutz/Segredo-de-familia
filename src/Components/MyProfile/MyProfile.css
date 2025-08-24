@@ -1,3 +1,62 @@
+.dialogLogout{
+    width: 20%;
+    border: none;
+    
+    border-radius: 10px;
+    font-family: "poppins";
+    text-align: center;
+
+    box-shadow: 0 0 1em #0000004d;
+
+    position: relative;
+    top: 130px;
+    left: 690px;
+
+    padding: 30px;
+}
+
+.dialogLogout::backdrop{
+  background-color: rgba(0, 0, 0, 0.507);
+}
+
+.divBtnLogout{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 50px;
+}
+
+.btnLogout{
+    background-color: #702e49e5;
+    color: white;
+    width: 150px;
+    height: 40px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;    
+    cursor: pointer;
+    transition: transform 100ms ease-in-out;
+    text-align: center;
+}
+
+.btnLogout:hover{
+    transform: scale(1.05);
+}
+
+.btnCancelLogout{
+    width: 150px;
+    height: 40px;
+    font-size: 1.2rem;
+    border: 1px solid black;
+    border-radius: 10px;    
+    cursor: pointer;
+    transition: transform 100ms ease-in-out;
+}
+
+.btnCancelLogout:hover{
+    transform: scale(1.05);
+}
+
 .divMyProfile{
     width: 100%;
     height: 88vh;
