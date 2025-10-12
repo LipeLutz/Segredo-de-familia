@@ -34,12 +34,6 @@
     color: white;
     font-family: 'outfit';
     font-size: 2.5rem;
-
-    /* width: 800px;
-    height: 100px;
-    border: 2px solid green;
-    border-radius: 10px;
-    */
     
 }
 
@@ -113,14 +107,14 @@
     padding: 50px;
 }
 
-.divRecipe h1{
+/* .divCreateRecipe h1{
     margin-bottom: 20px;
 }
 
-.divRecipe h1{
+.divCreateRecipe h1{
     font-family: 'Young-Serif';
     font-weight: normal;
-}
+} */
 
 .imgCreateRecipeInput{
     display: none;
@@ -369,9 +363,51 @@
 }
 
 .CreateStepsListNumbers{
-    color: 702e49;
+    color: #702e49;
     font-weight: bold;
 
+}
+
+.recipeCategoryH3{
+    font-family: "Poppins";
+    color: #84432f;
+}
+
+.divInputsCheckBox{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 40px;
+}
+
+.divCheckBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 40px 0px;
+}
+
+.divCheckBox input{
+    all: unset;
+    border: 1px solid black;
+    border-radius: 2px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.divCheckBox input:checked{
+    width: 20px;
+    height: 20px;
+    background-color: #702e49;
+}
+
+.divCheckBox label{
+    font-family: "Poppins";
+    font-weight: bold;
+    color: #84432f;
 }
 
 .divCreateNutrition{

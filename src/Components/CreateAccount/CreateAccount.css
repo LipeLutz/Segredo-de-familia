@@ -169,3 +169,20 @@
 .btnCreateUser:hover{
     transform: scale(1.05);
 }
+
+.alreadyhvAccount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.alreadyhvAccount a {
+    color: #702e49;
+    text-decoration: none;
+}
+
+.alreadyhvAccount a:hover {
+    color: #702e49;
+    text-decoration: underline;
+}

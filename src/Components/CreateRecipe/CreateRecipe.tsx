@@ -1,17 +1,20 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react'
 import './CreateRecipe.css'
 import { Link } from 'react-router'
-import type { CreateRecipeInterface } from '../../Interfaces/CreateRecipeInterface'
+import { addDoc, collection, Firestore } from 'firebase/firestore'
+import { db } from "../../Firebase/firebaseConfig"
+import { useAuth } from '../Context/Context.js'
+import imageCompression from 'browser-image-compression'
 
-export const CreateRecipe = () =>{
+export const CreateRecipe = () => {
 
     const [ingredientsToggle, setIngredientsToggle] = useState(false)
     const [instructionsToggle, setInstructionsToggle] = useState(false)
 
 
     const [file, setFile] = useState<string | ArrayBuffer | null>(null)
-    const [recipeName, setRecipeName]= useState("")
-    const [recipeDescription, setRecipeDescription]= useState("")
+    const [recipeName, setRecipeName] = useState("")
+    const [recipeDescription, setRecipeDescription] = useState("")
     const [prepTime, setPrepTime] = useState("")
     const [cookingTime, setCookingTime] = useState("")
 
@@ -21,70 +24,101 @@ export const CreateRecipe = () =>{
     const [instruction, setInstruction] = useState("")
     const [instructionsList, setInstructionsList] = useState<string[]>([])
 
+    const [recipeCategory, setRecipeCategory] = useState<string[]>([])
+
     const [calories, setCalories] = useState(0)
     const [carbs, setCarbs] = useState(0)
     const [proteins, setProteins] = useState(0)
     const [fat, setFat] = useState(0)
-    
-    const handleInputIMG = (e: ChangeEvent<HTMLInputElement>) =>{
-        const target = e.target as HTMLInputElement & {
-            files: FileList
+
+    const recipeCollection = collection(db, "recipe")
+
+    const handleInputIMG = async (e: ChangeEvent<HTMLInputElement>) => {
+
+        const file = e.target.files?.[0];
+        if (!file) return;
+
+        try {
+            const options = {
+                maxSizeMB: 1,
+                maxWidthOrHeight: 800,
+                useWebWorker: true,
+            };
+
+            const compressedFile = await imageCompression(file, options);
+
+            const reader = new FileReader();
+            reader.onload = () => {
+                setFile(reader.result); 
+            };
+            reader.readAsDataURL(compressedFile);
+
+        } catch (error) {
+            console.error("Erro ao comprimir imagem:", error);
         }
-
-        const reader = new FileReader()
-
-        reader.onload = () => {
-            setFile(reader.result)
-        }
-
-        reader.readAsDataURL(target.files[0])
     }
 
-    const handleIngredients = () =>{
+    const handleIngredients = () => {
         ingredient !== '' ? setIngredientsList((oldIngredient) => [...oldIngredient, ingredient]) : alert("Digite algo antes de enviar")
         setIngredient("")
     }
 
-    const handleInstructions = () =>{
+    const handleInstructions = () => {
         instruction !== '' ? setInstructionsList((oldInstruction) => [...oldInstruction, instruction]) : alert("Digite algo antes de enviar")
         setInstruction("")
     }
 
-    const handleSubmit = (e:FormEvent<HTMLFormElement>) =>{
+    const user = useAuth()
+
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        const recipe: CreateRecipeInterface = {
-            file,
-            recipeName,
-            recipeDescription,
-            prepTime,
-            cookingTime,
-            ingredientsList,
-            instructionsList,
-            calories,
-            carbs,
-            proteins,
-            fat
+        if (ingredientsList.length < 1) {
+            setIngredientsToggle(true)
+        } else if (instructionsList.length < 1) {
+            setInstructionsToggle(true)
+        } else {
+            try {
+
+                await addDoc(recipeCollection, {
+                    file,
+                    recipeName,
+                    recipeDescription,
+                    prepTime,
+                    cookingTime,
+                    ingredientsList,
+                    instructionsList,
+                    calories,
+                    carbs,
+                    proteins,
+                    fat,
+                    createdBy: user?.displayName
+                })
+
+                setFile(null)
+                setRecipeName("")
+                setRecipeDescription("")
+                setPrepTime("")
+                setCookingTime("")
+                setIngredient("")
+                setIngredientsList([])
+                setInstructionsList([])
+                setInstruction("")
+                setCalories(0)
+                setCarbs(0)
+                setProteins(0)
+                setFat(0)
+                setIngredientsToggle(true)
+                setInstructionsToggle(true)
+
+            } catch (error) {
+                console.log(error)
+            }
         }
 
-        setFile(null)
-        setRecipeName("")
-        setRecipeDescription("")
-        setPrepTime("")
-        setCookingTime("")
-        setIngredient("")
-        setIngredientsList([])
-        setInstructionsList([])
-        setInstruction("")
-        setCalories(0)
-        setCarbs(0)
-        setProteins(0)
-        setFat(0)
-
-        console.log(recipe)
     }
 
-    return(
+    return (
         <>
             <dialog className="dialogSuccess">
                 <div className='modalSuccess'>
@@ -95,7 +129,6 @@ export const CreateRecipe = () =>{
                             <button className='modalSuccesYes'>Sim</button>
                             <Link to='/' className='modalSuccesNo' >
                                 Não
-                                {/* <button className='modalSuccesNo'>Não</button>  */}
                             </Link>
                         </div>
                     </div>
@@ -107,7 +140,7 @@ export const CreateRecipe = () =>{
                     <div className='divCreateRecipe'>
                         <div>
                             <label>
-                                <input type="file" accept='image/*' className='imgCreateRecipeInput' onChange={(e) => handleInputIMG(e)}/>
+                                <input type="file" accept='image/*' className='imgCreateRecipeInput' onChange={(e) => handleInputIMG(e)} />
                                 <div className='divCreateRecipeImg'>
                                     {file ? <img src={file as string} className='createRecipeImg' /> : 'Coloque aqui uma imagem de sua receita (opcional)'}
                                 </div>
@@ -121,18 +154,18 @@ export const CreateRecipe = () =>{
                         </div>
                         <div className='createRecipeDescription'>
                             <label htmlFor="recipeDescription">Descrição:</label>
-                            <textarea name="recipeDescription" value={recipeDescription} required id="" placeholder='Faça uma breve descrição sobre o que se trata a receita' onChange={(e) => setRecipeDescription(e.target.value)}/>
+                            <textarea name="recipeDescription" value={recipeDescription} required id="" placeholder='Faça uma breve descrição sobre o que se trata a receita' onChange={(e) => setRecipeDescription(e.target.value)} />
                         </div>
 
                         <div className='divCreatePreparationTime'>
                             <h3>Tempo de preparo</h3>
                             <ul>
                                 <li>
-                                    <strong>Tempo de preparo</strong>: <input type="text" value={prepTime} required name="" id="" onChange={(e) => setPrepTime(e.target.value)}/>
+                                    <strong>Tempo de preparo</strong>: <input type="text" value={prepTime} required name="" id="" onChange={(e) => setPrepTime(e.target.value)} />
                                 </li>
 
                                 <li>
-                                    <strong>Tempo de cozimento</strong>: <input type="text" value={cookingTime} name="" required id="" onChange={(e) => setCookingTime(e.target.value)}/>
+                                    <strong>Tempo de cozimento</strong>: <input type="text" value={cookingTime} name="" required id="" onChange={(e) => setCookingTime(e.target.value)} />
                                 </li>
                             </ul>
 
@@ -170,19 +203,49 @@ export const CreateRecipe = () =>{
                                 </div>
 
                                 <div className='createStepsList'>
-                                    <input type="text" className={instructionsToggle ? 'warning' : ''} name="" id="" onChange={(e) => setInstruction(e.target.value)} value={instruction}/>
+                                    <input type="text" className={instructionsToggle ? 'warning' : ''} name="" id="" onChange={(e) => setInstruction(e.target.value)} value={instruction} />
                                     <button type='button' onClick={() => handleInstructions()}>Adicionar instrução</button>
                                 </div>
                             </div>
                         </div>
 
+                        <div className='divRecipeCategory'>
+                            <h3 className='recipeCategoryH3'>Qual categoria essa receita pertence?</h3>
+
+                            <div className='divInputsCheckBox'>
+                                <div className='divCheckBox'>
+                                    <input type="checkbox" value="fit" name="" id="fit" />
+                                    <label htmlFor="fit">Receitas fit</label>
+                                </div>
+                                <div className='divCheckBox'>
+                                    <input type="checkbox" name="" id="meat" />
+                                    <label htmlFor="meat">Carnes</label>
+                                </div>
+                                <div className='divCheckBox'>
+                                    <input type="checkbox" name="" id="pasta" />
+                                    <label htmlFor="pasta">Massas</label>
+                                </div>
+                                <div className='divCheckBox'>
+                                    <input type="checkbox" name="" id="desserts" />
+                                    <label htmlFor="desserts">Sobremesas</label>
+                                </div>
+                                <div className='divCheckBox'>
+                                    <input type="checkbox" name="" id="drinks" />
+                                    <label htmlFor="drinks">Drinks</label>
+                                </div>
+                                <div className='divCheckBox'>
+                                    <input type="checkbox" name="" id="sauces" />
+                                    <label htmlFor="sauces">Molhos</label>
+                                </div>
+                            </div>    
+                        </div>
+
                         <div className='divCreateNutrition'>
                             <h1 className='titleCreateRecipeInfos'>Informações nutricionais (opcional)</h1>
-                            <h4>The table below shows nutritional values per serving without the additional fillings.</h4>
                             <div>
                                 <div className='createNutritionalInfos'>
                                     <p className='createNutrients'>Calorias</p>
-                                    <input type="number" value={calories} name="" className='createNutrientsNumbers' onChange={(e) => setCalories(Number(e.target.value))}/>
+                                    <input type="number" value={calories} name="" className='createNutrientsNumbers' onChange={(e) => setCalories(Number(e.target.value))} />
                                 </div>
                                 <div className='createNutritionalInfos'>
                                     <p className='createNutrients'>Carboidratos</p>

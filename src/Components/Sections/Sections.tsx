@@ -1,17 +1,17 @@
 import "./Sections.css"
 import { Link } from "react-router"
 import { auth } from '../../Firebase/firebaseConfig'
+import { useAuth } from "../Context/Context"
 
 export const Sections = () =>{
 
-    console.log(auth.currentUser)
+    const user = useAuth()
 
     return(
         <div className="sections">
             <Link to="/" className="sectionsRoutes"><p>Menu</p></Link>
-            <Link to={auth.currentUser === 'null' ? "/protectedRoute" : "/createRecipe"} className="sectionsRoutes">Adicionar receita</Link>
+            <Link to={user ? "/createRecipe" : "/protectedRoute"} className="sectionsRoutes">Adicionar receita</Link>
             <Link to="/savedRecipes" className="sectionsRoutes">Receitas salvas</Link>
-            {/* <button>Sair</button> */}
         </div>
     )
 }

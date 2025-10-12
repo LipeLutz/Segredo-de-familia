@@ -5,16 +5,16 @@ export const ProtectedRoute = () =>{
     return(
         <div className="containerProtectedRoute">
             <div className="protectedRoute">
-                <h3>Ops, você não está autenticado...</h3>
+                <h2>Ops, você não está autenticado...</h2>
 
                 <div className="divRegisterProtectedRoute">
                     <div className='protectedRouteCreateAccount'>
                         <p>Para usar essa funcionalidade, você precisa se registrar</p>
-                        <Link to='/createAccount'>Criar conta</Link>
+                        <Link to='/createAccount' className='btnProtectedRouteCreateAccount'>Criar conta</Link>
                     </div>
-                    <div>
+                    <div className='protectedRouteLogin'>
                         <p>Já tem conta?</p>
-                        <button>Entrar</button>
+                        <Link to="/login" className='btnProtectedRouteLogin'>Entrar</Link>
                     </div>
                 </div>
             </div>

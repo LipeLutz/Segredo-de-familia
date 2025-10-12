@@ -6,12 +6,13 @@ import { useEffect, useState, type ChangeEvent, type FormEvent } from 'react'
 import type { CreateUserInterface } from '../../Interfaces/CreateUserInterface';
 import { DialogError } from '../Dialog/DialogError/DialogError'
 import { DialogSuccess } from '../Dialog/DialogSuccess/DialogSuccess';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from '../../Firebase/firebaseConfig.js'
+import { Link } from 'react-router';
 
 export const CreateAccount = () => {
 
-    const [name, setName] = useState("")
+    const [displayName, setDisplayName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [passwordVerification, setPasswordVerification] = useState("")
@@ -66,7 +67,12 @@ export const CreateAccount = () => {
         if (passwordLength && passwordNumbers && passwordUpperCase && passwordLowerCase && passwordMatch) {
 
             try {
-                await createUserWithEmailAndPassword(auth, email, password)
+                const createUser = await createUserWithEmailAndPassword(auth, email, password)
+                const user = createUser.user
+
+                await updateProfile(user, {
+                    displayName
+                })
                 setDialogText("Seja bem vindo(a)!")
                 setShowDialogSuccess(true)
                 
@@ -100,7 +106,7 @@ export const CreateAccount = () => {
                 <form className='formCreateAccount' onSubmit={handleSubmitFormUser}>
                     <div className='divInput'>
                         <label htmlFor="name">Nome de perfil:</label>
-                        <input type="text" id='name' onChange={(e) => setName(e.target.value)} required/>
+                        <input type="text" id='name' onChange={(e) => setDisplayName(e.target.value)} required/>
                     </div>
                     <div className='divInput'>
                         <label htmlFor="email">Email de confiança:</label>
@@ -143,6 +149,9 @@ export const CreateAccount = () => {
 
                     <div className='divBtnCreateUser'>
                         <button type='submit' className='btnCreateUser'>Cadastrar</button>
+                    </div>
+                    <div className='alreadyhvAccount'>
+                        <p>Já tem uma conta? <Link to="/login">Entrar</Link></p>
                     </div>
                 </form>
             </div>

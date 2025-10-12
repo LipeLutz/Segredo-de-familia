@@ -13,6 +13,12 @@ export const MyProfile = () => {
         modal!.showModal()
     }
 
+    const closeModalLogout = () =>{
+        const modal = document.querySelector('.dialogLogout')
+
+        modal!.close()
+    }
+
     const signOutUser = async () =>{
         try{
            await signOut(auth) 
@@ -31,7 +37,7 @@ export const MyProfile = () => {
                         <button className='btnLogout' onClick={() =>signOutUser()}>Sair</button>
                     </Link>
                     
-                    <button className='btnCancelLogout'>Cancelar</button>
+                    <button className='btnCancelLogout' onClick={()=>closeModalLogout()}>Cancelar</button>
                 </div>
             </dialog>
             <div className="divMyProfile">
