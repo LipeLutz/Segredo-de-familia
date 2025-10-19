@@ -2,21 +2,78 @@
     width: 100%;
     height: 88vh;
     background-color: blanchedalmond;
-    display: flex;
-    
 }
 
+.divMainWelcome{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.divMainWelcomeText{
+    width: 25%;
+}
+
+.divMainWelcomeText h1{
+    font-size: 5rem;
+    color: #84432f;
+    font-family: 'outfit' serif;
+    font-weight: bolder;
+}
+
+.divMainWelcomeText p{
+    margin-top: 40px;
+    font-family: 'Poppins';
+}
+
+.divWelcomeIMG{
+    width: 75%;
+}
+
+.welcomeIMG{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.exploreRecipes{
+    font-size: 1.2rem;
+    font-family: 'outfit';
+    color: white;
+    background-color: #84432f;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    
+    width: 300px;
+    height: 40px;  
+
+    margin-top: 40px;
+
+    transition: transform 100ms ease-in-out;
+}
+
+.exploreRecipes:hover{
+    transform: scale(1.05);
+}
+
+
+
+/*
 .containerRecipes{
     width: 90%;
-    margin: 30px 50px;
-    border-radius: 20px;    
+    padding: 60px 50px;   
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 .containerRecipesInput{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
 }
 
 .searchIcon{
@@ -50,10 +107,32 @@
     cursor: pointer;
     font-size: 1rem;
     font-family: "Poppins";
+    box-shadow: rgb(0, 0, 0) 0px 1px 3px;
+
+    transition: transform 100ms ease-in-out;
 }
 
 .btnRecipeCategory:hover{
-    border: 1px solid white;
+    transform: scale(1.05);
+}
+
+.btnRecipeCategoryActive{
+    width: 130px;
+    height: 35px;
+    background-color: white;
+    color: #702e49;
+    border: 1px solid #702e49;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: "Poppins";
+    box-shadow: rgb(0, 0, 0) 0px 1px 3px;
+
+    transition: transform 100ms ease-in-out;
+}
+
+.btnRecipeCategoryActive:hover{
+    transform: scale(1.05);
 }
 
 .containerRecipesInput input{
@@ -78,10 +157,11 @@
 .divIndividualRecipe{
     width: 350px;
     background-color: white;
-    border: 1px solid #702e49;
     color: #702e49;
     border-radius: 20px;
     cursor: pointer;
+    /* border: 1px solid white; */
+    box-shadow: rgb(0, 0, 0) 0px 1px 2px;
 
     transition: transform 100ms ease-in-out;
 }

@@ -1,0 +1,33 @@
+{/* <Sections /> */}
+            <div className='containerRecipes'>
+                <div className='containerRecipesInput'>
+                    <input type="text" name="" id="" onChange={(e) => setQuery(e.target.value)} />
+                </div>
+                <div className="containerRecipesCategories">
+                    {categories.map((category) => (
+                        <button 
+                            key={category.id || 'all'} 
+                            onClick={() => setSelectedCategory(category.id)} 
+                            className={selectedCategory === category.id ? 'btnRecipeCategoryActive' : 'btnRecipeCategory'}>
+
+                                {category.label}
+                        </button>
+                    ))}
+                </div>
+                {/*
+                <div className='divChooseRecipe'>
+                    {recipesToRender?.map((recipe) => (
+                        <div className="divIndividualRecipe" key={recipe.id}>
+                            <Link to={`/recipeDetails/${recipe.id}`}>
+                                <div className="divChooseRecipeIMG">
+                                    <img src={recipe.file} alt="" width="350" height="300" />
+                                </div>
+                                <div className="divChooseRecipeDetails">
+                                    <h2 className="h2ChooseRecipeDetails">{recipe.recipeName}</h2>
+                                    <p className="pChooseRecipeDetails">Criada por: {recipe.createdBy}</p>
+                                </div>
+                            </Link>
+                        </div>
+                    ))}
+                </div>*/}
+            </div>

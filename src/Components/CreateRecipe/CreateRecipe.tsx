@@ -33,6 +33,14 @@ export const CreateRecipe = () => {
 
     const recipeCollection = collection(db, "recipe")
 
+    const checkInput = (e: ChangeEvent<HTMLInputElement>) => {
+        if (e.target.checked) {
+            setRecipeCategory([...recipeCategory, e.target.value]);
+        } else {
+            setRecipeCategory(recipeCategory.filter((item) => item !== e.target.value));
+        }
+    }
+
     const handleInputIMG = async (e: ChangeEvent<HTMLInputElement>) => {
 
         const file = e.target.files?.[0];
@@ -49,7 +57,7 @@ export const CreateRecipe = () => {
 
             const reader = new FileReader();
             reader.onload = () => {
-                setFile(reader.result); 
+                setFile(reader.result);
             };
             reader.readAsDataURL(compressedFile);
 
@@ -88,6 +96,7 @@ export const CreateRecipe = () => {
                     cookingTime,
                     ingredientsList,
                     instructionsList,
+                    recipeCategory,
                     calories,
                     carbs,
                     proteins,
@@ -103,6 +112,7 @@ export const CreateRecipe = () => {
                 setIngredient("")
                 setIngredientsList([])
                 setInstructionsList([])
+                setRecipeCategory([])
                 setInstruction("")
                 setCalories(0)
                 setCarbs(0)
@@ -115,7 +125,6 @@ export const CreateRecipe = () => {
                 console.log(error)
             }
         }
-
     }
 
     return (
@@ -140,7 +149,7 @@ export const CreateRecipe = () => {
                     <div className='divCreateRecipe'>
                         <div>
                             <label>
-                                <input type="file" accept='image/*' className='imgCreateRecipeInput' onChange={(e) => handleInputIMG(e)} />
+                                <input type="file" accept='image/*' className='imgCreateRecipeInput' onChange={(e) => handleInputIMG(e)} required />
                                 <div className='divCreateRecipeImg'>
                                     {file ? <img src={file as string} className='createRecipeImg' /> : 'Coloque aqui uma imagem de sua receita (opcional)'}
                                 </div>
@@ -214,30 +223,30 @@ export const CreateRecipe = () => {
 
                             <div className='divInputsCheckBox'>
                                 <div className='divCheckBox'>
-                                    <input type="checkbox" value="fit" name="" id="fit" />
+                                    <input type="checkbox" value="fit" name="" id="fit" onChange={checkInput} />
                                     <label htmlFor="fit">Receitas fit</label>
                                 </div>
                                 <div className='divCheckBox'>
-                                    <input type="checkbox" name="" id="meat" />
+                                    <input type="checkbox" name="" value="meat" id="meat" onChange={checkInput} />
                                     <label htmlFor="meat">Carnes</label>
                                 </div>
                                 <div className='divCheckBox'>
-                                    <input type="checkbox" name="" id="pasta" />
+                                    <input type="checkbox" name="" value="pasta" id="pasta" onChange={checkInput} />
                                     <label htmlFor="pasta">Massas</label>
                                 </div>
                                 <div className='divCheckBox'>
-                                    <input type="checkbox" name="" id="desserts" />
+                                    <input type="checkbox" name="" value="desserts" id="desserts" onChange={checkInput} />
                                     <label htmlFor="desserts">Sobremesas</label>
                                 </div>
                                 <div className='divCheckBox'>
-                                    <input type="checkbox" name="" id="drinks" />
+                                    <input type="checkbox" name="" value="drinks" id="drinks" onChange={checkInput} />
                                     <label htmlFor="drinks">Drinks</label>
                                 </div>
                                 <div className='divCheckBox'>
-                                    <input type="checkbox" name="" id="sauces" />
+                                    <input type="checkbox" name="" value="sauces" id="sauces" onChange={checkInput} />
                                     <label htmlFor="sauces">Molhos</label>
                                 </div>
-                            </div>    
+                            </div>
                         </div>
 
                         <div className='divCreateNutrition'>

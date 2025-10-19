@@ -18,6 +18,7 @@ export const Header = () => {
             </div>
 
             <nav className="headerNav">
+                <Link to={user ? "/createRecipe" : "/createAccount"}>Adicionar Receita</Link>
                 {user ?
                     <Link to='/myProfile'>
                         <CgProfile className="profileIcon" />

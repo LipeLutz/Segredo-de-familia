@@ -3,7 +3,7 @@ import './RecipeDetails.css'
 import { db } from "../../Firebase/firebaseConfig.js"
 import { collection, getDocs } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
-import { useParams, useSearchParams } from 'react-router'
+import { useParams } from 'react-router'
 import type { CreateRecipeInterface } from '../../Interfaces/CreateRecipeInterface.js'
 
 export const RecipeDetails = () => {
@@ -84,7 +84,7 @@ export const RecipeDetails = () => {
 
                     <div className='divNutrition'>
                         <h1 className='titleNutrition'>Macros</h1>
-                        <h4>A tabela abaixo mostra os valores nutricionais por porção sem os recheios adicionais.</h4>
+                        <h4>A tabela abaixo mostra os valores nutricionais da receita completa.</h4>
                         <div>
                             <div className='nutritionalInfos'>
                                 <p className='nutrients'>Calorias</p>

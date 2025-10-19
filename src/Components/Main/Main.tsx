@@ -1,65 +1,94 @@
 import { CiSearch } from 'react-icons/ci'
 import { Sections } from '../Sections/Sections'
 import './Main.css'
-import { collection, getDocs, QuerySnapshot, type DocumentData } from 'firebase/firestore'
-import { useEffect, useState } from 'react'
+import { collection, getDocs } from 'firebase/firestore'
+import { useEffect, useState, type SetStateAction } from 'react'
 import { db } from "../../Firebase/firebaseConfig.js"
 import { Link } from 'react-router'
+import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
+import IMG from "./assets/piccini-cucina-divulgacao-tagliolini-al-ragu-classico.jpg"
+
+interface Recipe {
+    id: string
+    recipeName: string
+    recipeCategory: string
+    file: string
+    createdBy: string
+}
 
 export const Main = () => {
 
-    const [recipeList, setRecipeList] = useState<[]>()
+    const [query, setQuery] = useState<string>("")
+    const [recipeList, setRecipeList] = useState<Recipe[]>()
+    const [filteredRecipes, setFilteredRecipes] = useState<Recipe[]>([])
+    const [selectedCategory, setSelectedCategory] = useState<string>('')
 
     const recipeCollection = collection(db, "recipe")
+
+    const categories = [
+        { id: "", label: "Todas" },
+        { id: "fit", label: "Comidas Fit" },
+        { id: "meat", label: "Carnes" },
+        { id: "pasta", label: "Massas" },
+        { id: "desserts", label: "Sobremesas" },
+        { id: "drinks", label: "Drinks" },
+        { id: "sauces", label: "Molhos" },
+    ]
 
     useEffect(() => {
         const getRecipeList = async () => {
             try {
                 const data = await getDocs(recipeCollection)
-
-                const filteredData = data.docs.map((doc) => (
-                    { ...doc.data(), id: doc.id }
-                ))
-
-                setRecipeList(filteredData)
+                const recipes = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+                setRecipeList(recipes)
             } catch (error) {
-                console.log(error)
+                console.log("Erro ao buscar as receitas: ", error)
             }
         }
 
         getRecipeList()
-    }, [recipeList])
+    }, [])
+
+    useEffect(() => {
+
+        if (!recipeList?.length) return
+
+        const filteredRecipes = recipeList.filter((recipe) => {
+            const matchesQuery = recipe.recipeName.toLowerCase().includes(query.toLowerCase())
+
+            const matchesCategory = selectedCategory === "" || recipe.recipeCategory[0] === selectedCategory
+
+            return matchesQuery && matchesCategory
+        })
+
+        setFilteredRecipes(filteredRecipes)
+    }, [query, selectedCategory, recipeList])
+
+    const recipesToRender = filteredRecipes.length > 0 || query || selectedCategory ? filteredRecipes : recipeList
 
     return (
         <div className='main'>
-            <Sections />
-            <div className='containerRecipes'>
-                <div className='containerRecipesInput'>
-                    <input type="text" name="" id="" />
-                    <CiSearch className='searchIcon' />
+            <div className='divMainWelcome'>
+                <div className='divMainWelcomeText'>
+                    <h1>Descubra</h1>
+                    <h1>deliciosas</h1>
+                    <h1>receitas</h1>
+                    <h1>caseiras</h1>
+
+                    <p>Segredo de Família é um espaço criado para compartilhar receitas autênticas, cheias de sabor e história.
+                        Aqui, cada prato carrega o toque especial de quem cozinha com amor — de receitas tradicionais a novas criações, todas testadas e aprovadas para inspirar você na cozinha.
+                    </p>
+
+                    <button className='exploreRecipes'>Explorar receitas</button>
                 </div>
-                <div className='containerRecipesCategories'>
-                    <button className='btnRecipeCategory'>Comidas fit</button>
-                    <button className='btnRecipeCategory'>Carnes</button>
-                    <button className='btnRecipeCategory'>Massas</button>
-                    <button className='btnRecipeCategory'>Sobremesas</button>
-                    <button className='btnRecipeCategory'>Drinks</button>
+
+                <div className='divMainWelcomeIMG'>
+                    <img src={IMG} alt="" className='welcomeIMG' />
                 </div>
-                <div className='divChooseRecipe'>
-                    {recipeList?.map((recipe, index) => (
-                        <div className='divIndividualRecipe' key={index}>
-                            <Link to={`/recipeDetails/${recipe.id}`}>
-                                <div className='divChooseRecipeIMG'>
-                                    <img src={recipe.file} alt="" width="350px" height="300px" />
-                                </div>
-                                <div className='divChooseRecipeDetails'>
-                                    <h2 className='h2ChooseRecipeDetails'>{recipe.recipeName}</h2>
-                                    <p className='pChooseRecipeDetails'>Criada por: {recipe.createdBy}</p>
-                                </div>
-                            </Link>
-                        </div>
-                    ))}
-                </div>
+            </div>
+
+            <div className='divMainCategories'>
+                <p>Qual categoria de receita você procura?</p>
             </div>
         </div>
     )

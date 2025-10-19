@@ -4,7 +4,8 @@
     align-items: center;
     padding: 20px 70px 20px 70px;
     font-family: "poppins", sans-serif;
-    background-color: white;
+    background-color: blanchedalmond;
+    position: sticky;
 }
 
 .divLogo{
