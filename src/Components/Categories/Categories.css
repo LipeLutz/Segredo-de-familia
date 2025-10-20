@@ -1,0 +1,49 @@
+.divCategories{
+    background-color: white;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+
+    padding: 40px 0px 60px 0px;
+}
+
+.divCategories h2{
+    color: #84432f;
+    font-size: 2.5rem;
+}
+
+.categories{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    flex-wrap: wrap;
+    
+}
+
+.recipeCategory{
+    border-radius: 20px;
+    box-shadow: rgb(0, 0, 0) 0px 1px 2px;
+    transition: transform 100ms ease-in-out;
+    text-align: center;
+    cursor: pointer;
+}
+
+.recipeCategory:hover{
+    transform: scale(1.05);
+}
+
+.recipeCategoryIMG{
+    height: 200px;
+    width: 300px;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.recipeCategoryP{
+    font-family: "Outfit";
+    font-size: 1.5rem;
+    padding: 5px;
+}

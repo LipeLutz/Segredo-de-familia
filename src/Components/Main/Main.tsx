@@ -7,6 +7,7 @@ import { db } from "../../Firebase/firebaseConfig.js"
 import { Link } from 'react-router'
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
 import IMG from "./assets/piccini-cucina-divulgacao-tagliolini-al-ragu-classico.jpg"
+import { Categories } from '../Categories/Categories.js'
 
 interface Recipe {
     id: string
@@ -87,9 +88,7 @@ export const Main = () => {
                 </div>
             </div>
 
-            <div className='divMainCategories'>
-                <p>Qual categoria de receita você procura?</p>
-            </div>
+            <Categories />
         </div>
     )
 }
