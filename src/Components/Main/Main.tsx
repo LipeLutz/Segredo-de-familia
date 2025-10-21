@@ -8,6 +8,7 @@ import { Link } from 'react-router'
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
 import IMG from "./assets/piccini-cucina-divulgacao-tagliolini-al-ragu-classico.jpg"
 import { Categories } from '../Categories/Categories.js'
+import { LatestRecipes } from '../LatestRecipes/LatestRecipes.js'
 
 interface Recipe {
     id: string
@@ -89,6 +90,7 @@ export const Main = () => {
             </div>
 
             <Categories />
+            <LatestRecipes />
         </div>
     )
 }

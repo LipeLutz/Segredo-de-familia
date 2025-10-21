@@ -6,11 +6,11 @@
 
 .divMainWelcome{
     height: 94%;
-    width: 94%;
     display: flex;
     justify-content: center;
     gap: 40px;
-    margin: 60px;
+    margin: 0px 0px 60px 0px;
+    padding-top: 180px;
 }
 
 .divMainWelcomeText{

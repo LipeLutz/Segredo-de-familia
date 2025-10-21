@@ -1,5 +1,6 @@
 export interface CreateRecipeInterface{
-    file: string | ArrayBuffer | null
+    id: string | undefined
+    file: string
     recipeName: string
     recipeDescription: string
     prepTime: string
@@ -11,4 +12,5 @@ export interface CreateRecipeInterface{
     carbs: number
     proteins: number
     fat: number
+    date: number
 }

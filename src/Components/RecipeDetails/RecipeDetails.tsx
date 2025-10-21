@@ -63,8 +63,8 @@ export const RecipeDetails = () => {
                     <div className='divIngredients'>
                         <h1 className='h3Ingredients'>Ingredientes</h1>
 
-                        {recipe.ingredientsList.map((ingredientsList) => (
-                            <ul>
+                        {recipe.ingredientsList.map((ingredientsList, index) => (
+                            <ul key={index}>
                                 <li>{ingredientsList}</li>
                             </ul>
                         ))}
@@ -75,8 +75,8 @@ export const RecipeDetails = () => {
                         <h1 className='titleRecipeStepList'>Instruções</h1>
                         <div className='stepsList'>
                             <ol>
-                                {recipe.instructionsList.map((instructionsList) => (
-                                    <li>{instructionsList}</li>
+                                {recipe.instructionsList.map((instructionsList, index) => (
+                                    <li key={index}>{instructionsList}</li>
                                 ))}
                             </ol>
                         </div>

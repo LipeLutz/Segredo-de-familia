@@ -1,0 +1,50 @@
+.divRecipeCard{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 70px;
+    /* overflow: hidden; */
+}
+
+.recipeCard{
+    width: 300px;
+    background-color: white;
+    color: #702e49;
+    border-radius: 20px;
+    cursor: pointer;
+    /* border: 1px solid white; */
+    
+    box-shadow: rgb(0, 0, 0) 0px 1px 2px;
+
+    transition: transform 100ms ease-in-out;
+}
+
+
+.recipeCard:hover{
+    transform: scale(1.05);
+}
+
+.recipeCard a{
+    text-decoration: none;
+}
+
+.divRecipeCardIMG img{
+    width: 300px;
+    height: 250px;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.divRecipeCardDetails{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    font-family: "Outfit";
+    color: #84432f;
+    padding: 10px 0px;
+}

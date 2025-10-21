@@ -88,6 +88,20 @@ export const CreateRecipe = () => {
         } else {
             try {
 
+                const date = new Date
+
+                const addedDay = date.getUTCDate()
+                const addedMonth = date.getUTCMonth() + 1 
+                const addedYear = date.getUTCFullYear()
+                const addedTime  = date.getTime()
+
+                const addedDate = {
+                    addedDay,
+                    addedMonth,
+                    addedYear,
+                    addedTime
+                }
+
                 await addDoc(recipeCollection, {
                     file,
                     recipeName,
@@ -101,7 +115,8 @@ export const CreateRecipe = () => {
                     carbs,
                     proteins,
                     fat,
-                    createdBy: user?.displayName
+                    createdBy: user?.displayName,
+                    addedDate
                 })
 
                 setFile(null)
@@ -126,6 +141,7 @@ export const CreateRecipe = () => {
             }
         }
     }
+
 
     return (
         <>

@@ -12,8 +12,9 @@ export const Header = () => {
         <div className="header">
             <div className="divLogo">
                 <Link to='/' className='linkDivLogo'>
-                    <h2 className='h2Secret'>Segredo de</h2>
-                    <h2 className="h2Family">Família</h2>
+                    {/* <h1 className='logo'>Segredo de família</h1> */}
+                    <h1 className='h2Secret'>Segredo de</h1>
+                    <h1 className="h2Family">Família</h1> 
                 </Link>
             </div>
 
