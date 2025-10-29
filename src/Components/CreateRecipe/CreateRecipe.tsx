@@ -85,6 +85,8 @@ export const CreateRecipe = () => {
             setIngredientsToggle(true)
         } else if (instructionsList.length < 1) {
             setInstructionsToggle(true)
+        } else if(recipeCategory.length === 0){
+            alert("Escolha pelo menos uma categoria para sua receita")
         } else {
             try {
 
@@ -167,7 +169,7 @@ export const CreateRecipe = () => {
                             <label>
                                 <input type="file" accept='image/*' className='imgCreateRecipeInput' onChange={(e) => handleInputIMG(e)} required />
                                 <div className='divCreateRecipeImg'>
-                                    {file ? <img src={file as string} className='createRecipeImg' /> : 'Coloque aqui uma imagem de sua receita (opcional)'}
+                                    {file ? <img src={file as string} className='createRecipeImg' /> : 'Coloque aqui uma imagem de sua receita'}
                                 </div>
                             </label>
                         </div>
@@ -247,6 +249,14 @@ export const CreateRecipe = () => {
                                     <label htmlFor="meat">Carnes</label>
                                 </div>
                                 <div className='divCheckBox'>
+                                    <input type="checkbox" name="" value="fish" id="fish" onChange={checkInput} />
+                                    <label htmlFor="fish">Peixes e frutos do mar</label>
+                                </div>
+                                <div className='divCheckBox'>
+                                    <input type="checkbox" name="" value="birds" id="birds" onChange={checkInput} />
+                                    <label htmlFor="birds">Aves</label>
+                                </div>
+                                <div className='divCheckBox'>
                                     <input type="checkbox" name="" value="pasta" id="pasta" onChange={checkInput} />
                                     <label htmlFor="pasta">Massas</label>
                                 </div>
@@ -255,12 +265,20 @@ export const CreateRecipe = () => {
                                     <label htmlFor="desserts">Sobremesas</label>
                                 </div>
                                 <div className='divCheckBox'>
+                                    <input type="checkbox" name="" value="cake" id="cakes" onChange={checkInput} />
+                                    <label htmlFor="cakes">Bolos e tortas</label>
+                                </div>
+                                <div className='divCheckBox'>
                                     <input type="checkbox" name="" value="drinks" id="drinks" onChange={checkInput} />
                                     <label htmlFor="drinks">Drinks</label>
                                 </div>
                                 <div className='divCheckBox'>
-                                    <input type="checkbox" name="" value="sauces" id="sauces" onChange={checkInput} />
-                                    <label htmlFor="sauces">Molhos</label>
+                                    <input type="checkbox" name="" value="side-dishes" id="side-dishes" onChange={checkInput} />
+                                    <label htmlFor="side-dishes">Acompanhamentos</label>
+                                </div>
+                                <div className='divCheckBox'>
+                                    <input type="checkbox" name="" value="soups" id="soups" onChange={checkInput} />
+                                    <label htmlFor="soups">Sopas</label>
                                 </div>
                             </div>
                         </div>

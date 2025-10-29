@@ -1,4 +1,4 @@
-.mainCreateRecipe{
+.mainCreateRecipe {
     background-color: blanchedalmond;
     display: flex;
     justify-content: center;
@@ -6,11 +6,11 @@
     flex-direction: column;
 }
 
-.modalRecipeDisabled{
+.modalRecipeDisabled {
     display: none;
 }
 
-.divModalSuccess{
+.divModalSuccess {
     width: 100%;
     height: 100%;
     z-index: 1;
@@ -20,7 +20,7 @@
     color: white;
 }
 
-.modalSuccess{
+.modalSuccess {
     width: 100%;
     height: 100%;
     position: relative;
@@ -34,44 +34,44 @@
     color: white;
     font-family: 'outfit';
     font-size: 2.5rem;
-    
+
 }
 
-.divmodalSuccessBtn{
+.divmodalSuccessBtn {
     position: relative;
     right: 10px;
     display: flex;
     justify-content: right;
 }
 
-.modalSuccessBtn{
+.modalSuccessBtn {
     width: 30px;
     height: 30px;
     border: none;
     font-size: 2rem;
-    background-color: transparent; 
+    background-color: transparent;
     color: white;
     cursor: pointer;
 }
 
-.testandoo{
+.testandoo {
     padding: 50px;
     border-radius: 20px;
     background-color: blanchedalmond;
     color: #702e49;
 }
 
-.testandoo p{
+.testandoo p {
     margin-bottom: 20px;
 }
 
-.modalDivBtnYesNo{
+.modalDivBtnYesNo {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.modalSuccesYes{
+.modalSuccesYes {
     margin-right: 20px;
     width: 150px;
     height: 40px;
@@ -83,7 +83,7 @@
     color: white;
 }
 
-.modalSuccesNo{
+.modalSuccesNo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,7 +99,7 @@
     text-decoration: none;
 }
 
-.divCreateRecipe{
+.divCreateRecipe {
     margin-top: 200px;
     border-radius: 30px;
     width: 700px;
@@ -116,11 +116,11 @@
     font-weight: normal;
 } */
 
-.imgCreateRecipeInput{
+.imgCreateRecipeInput {
     display: none;
 }
 
-.divCreateRecipeImg{
+.divCreateRecipeImg {
     aspect-ratio: 16/9;
     background-color: #ddd;
     display: flex;
@@ -134,23 +134,23 @@
     margin-bottom: 40px;
 }
 
-.divCreateRecipeImg:hover{
+.divCreateRecipeImg:hover {
     color: #702e49;
     background-color: #ccc;
 }
 
-.createRecipeImg{
+.createRecipeImg {
     width: 100%;
-    height: 100%; 
-} 
+    height: 100%;
+}
 
-.createRecipeName{
+.createRecipeName {
     font-family: 'Outfit';
     margin-bottom: 40px;
     font-size: 1.2rem;
 }
 
-.createRecipeName input{
+.createRecipeName input {
     font-family: 'outfit';
     font-size: 1.2rem;
     border: none;
@@ -163,7 +163,7 @@
     margin-left: 5px;
 }
 
-.createRecipeDescription{
+.createRecipeDescription {
     font-family: 'Outfit';
     margin-bottom: 40px;
     font-size: 1.2rem;
@@ -171,7 +171,7 @@
     align-items: center;
 }
 
-.createRecipeDescription textarea{
+.createRecipeDescription textarea {
     font-family: 'outfit';
     font-size: 1.2rem;
     border: none;
@@ -184,7 +184,7 @@
     margin-left: 5px;
 }
 
-.divCreatePreparationTime{
+.divCreatePreparationTime {
     background-color: #fff7fc;
     font-family: "outfit";
     padding: 20px;
@@ -192,22 +192,22 @@
     margin-bottom: 40px;
 }
 
-.divCreatePreparationTime h3{
+.divCreatePreparationTime h3 {
     color: #702e49;
 }
 
-.divCreatePreparationTime ul{
+.divCreatePreparationTime ul {
     padding: 10px 0px 0px 20px;
 }
 
-.divCreatePreparationTime ul li{
-    padding: 5px 0px 0px 20px ;
-    list-style-type: none;  
+.divCreatePreparationTime ul li {
+    padding: 5px 0px 0px 20px;
+    list-style-type: none;
     color: #645b56;
     font-weight: 300;
 }
 
-.divCreatePreparationTime li:before{
+.divCreatePreparationTime li:before {
     color: #702e49;
     content: "•";
     display: inline-block;
@@ -217,7 +217,7 @@
     top: 8px;
 }
 
-.divCreatePreparationTime input{
+.divCreatePreparationTime input {
     font-family: 'outfit';
     font-size: 1.2rem;
     border: none;
@@ -230,29 +230,29 @@
     margin-left: 5px;
 }
 
-.divCreateIngredients{
+.divCreateIngredients {
     margin-bottom: 40px;
 }
 
-.titleCreateRecipeInfos{
+.titleCreateRecipeInfos {
     color: #84432f;
     font-family: 'outfit';
     margin-bottom: 40px;
 }
 
-.divCreateIngredients ul{
+.divCreateIngredients ul {
     padding: 0px 0px 20px 10px;
     font-family: 'outfit';
 }
 
-.divCreateIngredients ul li{
-    padding: 0px 0px 0px 20px ;
-    list-style-type: none;  
+.divCreateIngredients ul li {
+    padding: 0px 0px 0px 20px;
+    list-style-type: none;
     color: #645b56;
     font-weight: 300;
 }
 
-.divCreateIngredients li:before{
+.divCreateIngredients li:before {
     color: #702e49;
     content: "•";
     display: inline-block;
@@ -262,14 +262,14 @@
     top: 8px;
 }
 
-.titleCreateRecipeInfosDiv{
+.titleCreateRecipeInfosDiv {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.divIngredientsWarning{
-    background-color: rgba(255, 0, 0, 0.589) ;
+.divIngredientsWarning {
+    background-color: rgba(255, 0, 0, 0.589);
     width: 700px;
     height: 50px;
     display: flex;
@@ -283,15 +283,15 @@
     font-weight: bold;
 }
 
-.divIngredientsWarningDisabled{
+.divIngredientsWarningDisabled {
     display: none;
 }
 
-.warning{
+.warning {
     border: 2px solid red !important;
 }
 
-.titleCreateRecipeInfosDiv input{
+.titleCreateRecipeInfosDiv input {
     font-family: 'outfit';
     font-size: 1.2rem;
     border: none;
@@ -304,14 +304,14 @@
     margin-left: 5px;
 }
 
-.titleCreateRecipeInfosDiv button{
+.titleCreateRecipeInfosDiv button {
     font-family: 'outfit';
     font-size: 0.9rem;
     background-color: #702e49;
     color: white;
     border: none;
     border-radius: 10px;
-    
+
     height: 40px;
     padding: 10px;
     display: flex;
@@ -320,11 +320,22 @@
     cursor: pointer;
 }
 
-.divCreateInstructions{
+.divCreateInstructions {
     margin-bottom: 40px;
 }
 
-.createStepsList{
+.divCreateInstructions ol li {
+    padding: 0px 0px 0px 10px;
+    color: #645b56;
+    font-weight: 300;
+}
+
+.divCreateInstructions ol {
+    padding: 0px 0px 20px 30px;
+    font-family: 'outfit';
+}
+
+.createStepsList {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -332,7 +343,7 @@
     color: #645b56;
 }
 
-.createStepsList input{
+.createStepsList input {
     font-family: 'outfit';
     font-size: 1.2rem;
     border: none;
@@ -345,14 +356,14 @@
     margin-left: 5px;
 }
 
-.createStepsList button{
+.createStepsList button {
     font-family: 'outfit';
     font-size: 0.9rem;
     background-color: #702e49;
     color: white;
     border: none;
     border-radius: 10px;
-    
+
     width: 157px;
     height: 40px;
     padding: 10px;
@@ -362,34 +373,36 @@
     cursor: pointer;
 }
 
-.CreateStepsListNumbers{
+.CreateStepsListNumbers {
     color: #702e49;
     font-weight: bold;
 
 }
 
-.recipeCategoryH3{
+.recipeCategoryH3 {
     font-family: "Poppins";
     color: #84432f;
+    margin-bottom: 20px;
 }
 
-.divInputsCheckBox{
+.divInputsCheckBox {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-content: center;
-    gap: 40px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.divCheckBox{
+.divCheckBox {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
-    margin: 40px 0px;
+    margin: 20px 0px;
 }
 
-.divCheckBox input{
+.divCheckBox input {
     all: unset;
     border: 1px solid black;
     border-radius: 2px;
@@ -398,42 +411,42 @@
     height: 20px;
 }
 
-.divCheckBox input:checked{
+.divCheckBox input:checked {
     width: 20px;
     height: 20px;
     background-color: #702e49;
 }
 
-.divCheckBox label{
+.divCheckBox label {
     font-family: "Poppins";
     font-weight: bold;
     color: #84432f;
 }
 
-.divCreateNutrition{
+.divCreateNutrition {
     font-family: 'outfit';
     color: #645b56;
-    margin-bottom: 40px;
+    margin: 40px 0px;
 }
 
-.divCreateNutrition h4{
+.divCreateNutrition h4 {
     font-weight: normal;
     font-size: 1rem;
     margin-bottom: 20px;
 }
 
-.createNutritionalInfos{
+.createNutritionalInfos {
     display: flex;
     margin-bottom: 20px;
     border-bottom: 1px solid #645b5648;
     padding: 18px 20px 10px 32px;
 }
 
-.createNutrients{
+.createNutrients {
     width: 100px;
 }
 
-.createNutrientsNumbers{
+.createNutrientsNumbers {
     font-family: 'outfit';
     font-size: 1.2rem;
     border: none;
@@ -444,13 +457,13 @@
     height: 30px;
 }
 
-.sendRecipe{
+.sendRecipe {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.sendRecipe button{
+.sendRecipe button {
     font-size: 1.2rem;
     font-family: 'outfit';
     color: white;
@@ -458,7 +471,7 @@
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    
+
     width: 300px;
-    height: 40px;    
+    height: 40px;
 }

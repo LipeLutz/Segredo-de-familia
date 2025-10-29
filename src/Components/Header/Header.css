@@ -5,7 +5,7 @@
     align-items: center;
     padding: 20px 70px 20px 70px; 
     font-family: "poppins", sans-serif;
-    background-color: blanchedalmond;
+    background-color: rgba(255, 235, 205, 0.733);
     position: fixed;
     z-index: 1;
 }

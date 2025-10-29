@@ -10,16 +10,23 @@ import IMGAcompanhamentos from './Assets/acompanhamentos.jpg'
 import IMGSopas from './Assets/sopas.jpg'
 
 import './Categories.css'
+import { Link } from 'react-router'
 
-export const Categories = () =>{
+interface Ref{
+    sectionCategoriesRef: React.RefObject<null>
+}
+
+export const Categories = ({ sectionCategoriesRef }: Ref) =>{
     return(
-        <div className="divCategories">
+        <div ref={sectionCategoriesRef} className="divCategories">
             <h2>Que tipo de receita você procura?</h2>
             <div className='categories'>
-                <div className='recipeCategory'>
-                    <img src={IMGReceitasFit} alt="" className='recipeCategoryIMG'/>
-                    <p className='recipeCategoryP'>Receitas fit</p>
-                </div>
+                <Link to="/fitRecipes">
+                    <div className='recipeCategory'>
+                        <img src={IMGReceitasFit} alt="" className='recipeCategoryIMG'/>
+                        <p className='recipeCategoryP'>Receitas fit</p>
+                    </div>
+                </Link>
 
                 <div className='recipeCategory'>
                     <img src={IMGCarnes} alt="" className='recipeCategoryIMG'/>

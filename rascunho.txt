@@ -31,3 +31,17 @@
                     ))}
                 </div>*/}
             </div>
+
+
+Receitas filtradas por data
+
+
+useEffect(() => {
+        const sortedRecipes = recipeList?.sort((a, b) => b.addedDate.addedTime - a.addedDate.addedTime);
+
+        const latestRecipes = sortedRecipes?.slice(0, 4);
+
+        setfilteredRecipeList(latestRecipes)
+
+    }, [recipeList])
+

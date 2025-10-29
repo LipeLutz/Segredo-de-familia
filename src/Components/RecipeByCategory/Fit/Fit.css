@@ -1,0 +1,62 @@
+.divFitRecipes {
+    width: 100%;
+    height: 88vh;
+}
+
+.divFitRecipesWelcomeText {
+    height: 94%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+    margin: 0px 0px 60px 0px;
+    padding-top: 180px;
+
+    background-image: url(assets/pexels-ella-olsson-572949-1640775.jpg);
+    background-position: top;
+    background-size: cover;
+    background-color: rgba(10, 23, 55, 0.5);
+}
+
+.fitRecipesWelcomeText {
+    width: 70%;
+    font-family: "Outfit";
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.884);
+    border-radius: 20px;
+}
+
+.fitRecipesWelcomeTextH1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #84432f;
+}
+
+.fitRecipesWelcomeTextH3 {
+    color: #84432f;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.fitRecipesWelcomeTextP {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.fitRecipesWelcomeTextBtn {
+    font-size: 1.2rem;
+    font-family: 'outfit';
+    color: white;
+    background-color: #84432f;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 300px;
+    height: 40px;
+    transition: transform 100ms ease-in-out;
+}
+
+.fitRecipesWelcomeTextBtn:hover {
+    transform: scale(1.05)
+}

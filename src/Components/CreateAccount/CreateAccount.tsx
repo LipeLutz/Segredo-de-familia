@@ -3,9 +3,9 @@ import './CreateAccount.css'
 import { LiaTimesSolid } from "react-icons/lia";
 import { FaCheck } from "react-icons/fa6";
 import { useEffect, useState, type ChangeEvent, type FormEvent } from 'react'
-import type { CreateUserInterface } from '../../Interfaces/CreateUserInterface';
-import { DialogError } from '../Dialog/DialogError/DialogError'
-import { DialogSuccess } from '../Dialog/DialogSuccess/DialogSuccess';
+import type { CreateUserInterface } from '../../Interfaces/CreateUserInterface.js';
+import { DialogError } from '../Dialog/DialogError/DialogError.js'
+import { DialogSuccess } from '../Dialog/DialogSuccess/DialogSuccess.js';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from '../../Firebase/firebaseConfig.js'
 import { Link } from 'react-router';

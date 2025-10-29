@@ -1,72 +1,18 @@
-import { CiSearch } from 'react-icons/ci'
-import { Sections } from '../Sections/Sections'
 import './Main.css'
-import { collection, getDocs } from 'firebase/firestore'
-import { useEffect, useState, type SetStateAction } from 'react'
-import { db } from "../../Firebase/firebaseConfig.js"
-import { Link } from 'react-router'
-import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
+
 import IMG from "./assets/piccini-cucina-divulgacao-tagliolini-al-ragu-classico.jpg"
 import { Categories } from '../Categories/Categories.js'
-import { LatestRecipes } from '../LatestRecipes/LatestRecipes.js'
+import { useRef } from 'react'
 
-interface Recipe {
-    id: string
-    recipeName: string
-    recipeCategory: string
-    file: string
-    createdBy: string
-}
+
 
 export const Main = () => {
 
-    const [query, setQuery] = useState<string>("")
-    const [recipeList, setRecipeList] = useState<Recipe[]>()
-    const [filteredRecipes, setFilteredRecipes] = useState<Recipe[]>([])
-    const [selectedCategory, setSelectedCategory] = useState<string>('')
+    const sectionCategoriesRef = useRef(null)
 
-    const recipeCollection = collection(db, "recipe")
-
-    const categories = [
-        { id: "", label: "Todas" },
-        { id: "fit", label: "Comidas Fit" },
-        { id: "meat", label: "Carnes" },
-        { id: "pasta", label: "Massas" },
-        { id: "desserts", label: "Sobremesas" },
-        { id: "drinks", label: "Drinks" },
-        { id: "sauces", label: "Molhos" },
-    ]
-
-    useEffect(() => {
-        const getRecipeList = async () => {
-            try {
-                const data = await getDocs(recipeCollection)
-                const recipes = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
-                setRecipeList(recipes)
-            } catch (error) {
-                console.log("Erro ao buscar as receitas: ", error)
-            }
-        }
-
-        getRecipeList()
-    }, [])
-
-    useEffect(() => {
-
-        if (!recipeList?.length) return
-
-        const filteredRecipes = recipeList.filter((recipe) => {
-            const matchesQuery = recipe.recipeName.toLowerCase().includes(query.toLowerCase())
-
-            const matchesCategory = selectedCategory === "" || recipe.recipeCategory[0] === selectedCategory
-
-            return matchesQuery && matchesCategory
-        })
-
-        setFilteredRecipes(filteredRecipes)
-    }, [query, selectedCategory, recipeList])
-
-    const recipesToRender = filteredRecipes.length > 0 || query || selectedCategory ? filteredRecipes : recipeList
+    const scrollToCategoriesRef = () =>{
+        sectionCategoriesRef.current?.scrollIntoView({behavior: "smooth"})
+    }
 
     return (
         <div className='main'>
@@ -81,16 +27,16 @@ export const Main = () => {
                         Aqui, cada prato carrega o toque especial de quem cozinha com amor — de receitas tradicionais a novas criações, todas testadas e aprovadas para inspirar você na cozinha.
                     </p>
 
-                    <button className='exploreRecipes'>Explorar receitas</button>
+                    <button className='exploreRecipes' onClick={scrollToCategoriesRef}>Explorar receitas</button>
                 </div>
 
                 <div className='divMainWelcomeIMG'>
                     <img src={IMG} alt="" className='welcomeIMG' />
                 </div>
             </div>
-
-            <Categories />
-            <LatestRecipes />
+            
+            <Categories sectionCategoriesRef={sectionCategoriesRef}/>
+            {/* <LatestRecipes /> */}
         </div>
     )
 }
