@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { RecipeCard } from '../../RecipeCard/RecipeCard'
+import { RecipeCard } from '../../RecipeCard/RecipeCard.js'
 import { db } from "../../../Firebase/firebaseConfig.js"
-import './Fit.css'
+import './Soups.css'
 import { collection, getDocs } from 'firebase/firestore'
 
 interface Recipe {
@@ -24,10 +24,10 @@ interface Ref {
     scrollToRef: () => void
 }
 
-export const Fit = ( {sectionRef, scrollToRef}: Ref ) => {
+export const Soups = ( {sectionRef, scrollToRef}: Ref ) => {
 
     const [recipeList, setRecipeList] = useState<Recipe[]>()
-    const [filteredRecipeList, setfilteredRecipeList] = useState<Recipe[]>()
+    const [filteredRecipeList, setfilteredRecipeList] = useState<Recipe[]>([])
 
     const recipeCollection = collection(db, "recipe")
 
@@ -47,7 +47,7 @@ export const Fit = ( {sectionRef, scrollToRef}: Ref ) => {
 
     useEffect(() =>{
         const recipeFilter = recipeList?.filter((recipe) =>{
-            if(recipe.recipeCategory.includes("fit")){
+            if(recipe.recipeCategory.includes("soups")){
                 setfilteredRecipeList([recipe])
             }
         })
@@ -57,18 +57,18 @@ export const Fit = ( {sectionRef, scrollToRef}: Ref ) => {
 
 
     return (
-        <div className="divFitRecipes">
-            <div className='divFitRecipesWelcomeText'>
-                <div className='fitRecipesWelcomeText'>
-                    <h1 className='fitRecipesWelcomeTextH1'>Receitas Fit</h1>
-                    <h3 className='fitRecipesWelcomeTextH3'>Sabor e equilíbrio no mesmo prato</h3>
-                    <p className='fitRecipesWelcomeTextP'>Descubra o melhor da culinária saudável sem abrir mão do sabor! Aqui você encontra receitas leves, nutritivas e perfeitas para quem busca manter o foco, cuidar da saúde e aproveitar cada refeição com prazer</p>
-                    <p className='fitRecipesWelcomeTextP'>Explore, salve suas favoritas e prove que comida saudável pode (e deve!) ser deliciosa.</p>
-                    <button className='fitRecipesWelcomeTextBtn' onClick={scrollToRef}>Explorar receitas</button>
+        <div className="divSoupsRecipes">
+            <div className='divSoupsRecipesWelcomeText'>
+                <div className='soupsRecipesWelcomeText'>
+                    <h1 className='soupsRecipesWelcomeTextH1'>Sopas</h1>
+                    <h3 className='soupsRecipesWelcomeTextH3'>Conforto e sabor em cada colherada</h3>
+                    <p className='soupsRecipesWelcomeTextP'>Perfeitas para dias frios (ou para quem ama uma refeição leve e nutritiva), nossas sopas são cheias de sabor e personalidade.</p>
+                    <p className='soupsRecipesWelcomeTextP'>Experimente, aqueça-se e descubra o prazer das receitas que abraçam.</p>
+                    <button className='soupsRecipesWelcomeTextBtn' onClick={scrollToRef}>Explorar receitas</button>
                 </div>
             </div>
 
-            <div className='fitRecipes' ref={sectionRef}>
+            <div className='soupsRecipes' ref={sectionRef}>
                 <RecipeCard filteredRecipeList={filteredRecipeList}/>
             </div>
         </div>

@@ -7,6 +7,7 @@ import { Link } from "react-router"
 import { CiHeart } from "react-icons/ci"
 import { FaHeart } from "react-icons/fa"
 import type { CreateRecipeInterface } from "../../Interfaces/CreateRecipeInterface.js"
+import { useAuth } from "../Context/Context.js"
 
 interface Recipe {
     id: string
@@ -25,14 +26,18 @@ interface Recipe {
 
 export const RecipeCard = ({ filteredRecipeList }) => {
 
+    const user = useAuth()
+
     return (
         <div className="divRecipeCard">
             {filteredRecipeList?.length === 0 ?
-                <div>
-                    <p>Nenhuma receita adicionada com essa categoria :(</p>
+                <div className="noRecipes">
+                    <h2 className="noRecipesH2">Infelizmente ainda não foi adicionada nenhuma receita com essa categoria :(</h2>
 
-                    <p>Quer ser o primeiro? Clique no botão abaixo, e adicione já sua receita</p>
-                    <button>Adicionar receita</button>
+                    <p className="noRecipesP">Quer ser o primeiro? Clique no botão abaixo, e adicione já sua receita</p>
+                    <Link to={user ? "/createRecipe" : "/createAccount"}>
+                        <button className="noRecipesBtn">Adicionar receita</button>
+                    </Link>
                 </div> :
                 filteredRecipeList?.map((recipe: Recipe) => (
                     <>

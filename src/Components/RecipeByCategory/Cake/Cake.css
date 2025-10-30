@@ -1,9 +1,9 @@
-.divFitRecipes {
+.divCakeRecipes {
     width: 100%;
     height: 88vh;
 }
 
-.divFitRecipesWelcomeText {
+.divCakeRecipesWelcomeText {
     height: 94%;
     display: flex;
     justify-content: center;
@@ -13,13 +13,13 @@
     margin: 0px 0px 60px 0px;
     padding-top: 180px;
 
-    background-image: url(assets/pexels-ella-olsson-572949-1640775.jpg);
-    background-position: top;
+    background-image: url(assets/pexels-antonio-ribeiro-2267606-17019909.jpg);
+    background-position: center;
     background-size: cover;
     background-color: rgba(10, 23, 55, 0.5);
 }
 
-.fitRecipesWelcomeText {
+.cakeRecipesWelcomeText {
     width: 70%;
     font-family: "Outfit";
     padding: 30px;
@@ -28,24 +28,24 @@
     border-radius: 20px;
 }
 
-.fitRecipesWelcomeTextH1 {
+.cakeRecipesWelcomeTextH1 {
     font-size: 3rem;
     margin-bottom: 30px;
     color: #84432f;
 }
 
-.fitRecipesWelcomeTextH3 {
+.cakeRecipesWelcomeTextH3 {
     color: #84432f;
     font-size: 2rem;
     margin-bottom: 30px;
 }
 
-.fitRecipesWelcomeTextP {
+.cakeRecipesWelcomeTextP {
     font-size: 1.2rem;
     margin-bottom: 30px;
 }
 
-.fitRecipesWelcomeTextBtn {
+.cakeRecipesWelcomeTextBtn {
     font-size: 1.2rem;
     font-family: 'outfit';
     color: white;
@@ -58,6 +58,6 @@
     transition: transform 100ms ease-in-out;
 }
 
-.fitRecipesWelcomeTextBtn:hover {
+.cakeRecipesWelcomeTextBtn:hover {
     transform: scale(1.05)
 }

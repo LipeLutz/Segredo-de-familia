@@ -1,4 +1,4 @@
-.divRecipeCard{
+.divRecipeCard {
     width: 100%;
     height: 88vh;
 
@@ -14,35 +14,70 @@
     text-decoration: none;
 }
 
-.recipeCard{
+.noRecipes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    font-family: "Outfit";
+}
+
+.noRecipesH2 {
+    font-size: 2rem;
+}
+
+.noRecipesP {
+    color: #84432f;
+    font-size: 1.3rem;
+}
+
+.noRecipesBtn {
+    font-size: 1.2rem;
+    font-family: 'outfit';
+    color: white;
+    background-color: #84432f;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 300px;
+    height: 40px;
+    transition: transform 100ms ease-in-out;
+}
+
+.noRecipesBtn:hover {
+    transform: scale(1.05);
+}
+
+.recipeCard {
     width: 350px;
     background-color: white;
     color: #702e49;
     border-radius: 20px;
     cursor: pointer;
-    
+
     /* border: 1px solid white; */
-    
+
     box-shadow: rgb(0, 0, 0) 0px 1px 2px;
 
     transition: transform 100ms ease-in-out;
 }
 
 
-.recipeCard:hover{
+.recipeCard:hover {
     transform: scale(1.05);
 }
 
-.divRecipeCardIMG img{
+.divRecipeCardIMG img {
     width: 350px;
     height: 250px;
     border-radius: 20px 20px 0px 0px;
 }
 
-.divRecipeCardDetails{
+.divRecipeCardDetails {
     display: flex;
     justify-content: center;
-    
+
     flex-direction: column;
     gap: 10px;
 
@@ -52,22 +87,22 @@
 }
 
 
-.h2RecipeCardDetails{
+.h2RecipeCardDetails {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 10px;
 }
 
-.pRecipeCardDetails{
+.pRecipeCardDetails {
     color: #000;
     margin-bottom: 30px;
 }
 
-.btnSaveRecipeIcon{
+.btnSaveRecipeIcon {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     font-size: 1.2rem;
     font-family: 'outfit';
     color: white;
@@ -81,6 +116,6 @@
     transition: transform 100ms ease-in-out;
 }
 
-.btnSaveRecipeIcon:hover{
+.btnSaveRecipeIcon:hover {
     transform: scale(1.05);
 }
